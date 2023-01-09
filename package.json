@@ -1,0 +1,24 @@
+{
+  "name": "mydoctor-selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "loginPage": "cucumber-js features/myDoctorLoginPage.feature"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^8.10.0",
+    "base-64": "^1.0.0",
+    "chromedriver": "^108.0.0",
+    "geckodriver": "^3.2.0",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.7.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "cucumber": "^6.0.7"
+  }
+}
