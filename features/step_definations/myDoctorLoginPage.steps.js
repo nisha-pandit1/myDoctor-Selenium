@@ -16,6 +16,11 @@ When("user clicks on the {string}", async function (webelem) {
   var loginButton= ".MuiTypography-root .MuiButtonBase-root .MuiButton-label"; 
   await loginPageObject.clickByCss(loginButton); 
   }
+  else if(webelem=="register button"){
+   var registerbutton= "a span.MuiButton-label";
+   await loginPageObject.clickByCss(registerbutton); 
+  
+  }
   else{
     var submitButton= "form span.MuiButton-label";
     await loginPageObject.clickByCss(submitButton);

@@ -1,19 +1,19 @@
 Feature: Doctor Registration
 
   # @DORE001 @Sanity @NotAutomated @Regression @DoctorRegistration @Doctor
-  # Scenario Outline:User navigates to the Doctor Registration and signs up
-  #   Given user navigates to the "<Page Type>" page
-  #   When user enters value "<Name>" in the fullname input field
-  #   And user selects checkbox with value "<GenderType>"
-  #   And user enters value in the email input field
-  #   And user enters value in the mobile number input field
-  #   And user enters value "<Password>" in the Password input field
-  #   And user enters value "<Password>" in the confirm password input field
-  #   When user clicks on the register button
-  #   Then user can view message "Signed up successfully!"
-  #   Examples:
-  #     | Name         | Password    | GenderType | Page Type           |
-  #     | Hunter Brown | 9797@Qwerty | Other       | Doctor Registration |
+  Scenario Outline:User navigates to the Doctor Registration and signs up
+    Given user navigates to the "<Page Type>" page
+    When user enters value "<Name>" in the "fullname" input field
+    # And user selects checkbox with value "<GenderType>"
+    # And user enters value in the email input field
+    # And user enters value in the mobile number input field
+    And user enters value "<Password>" in the "Password" input field
+    And user enters value "<Password>" in the "confirm password" input field
+    # When user clicks on the "register button"
+    # Then user can view message "Signed up successfully!"
+    Examples:
+      | Name         | Password    | GenderType | Page Type           |
+      | Hunter Brown | 9797@Qwerty | Other       | Doctor Registration |
 
 
   # # @DORE002 @DoctorRegistration @Regression @NotAutomated @Doctor
@@ -57,22 +57,22 @@ Feature: Doctor Registration
   #     | Test User | Male       | Alpha@12       | Alpha@1233     | Passwords must match.                                                                                                  | Doctor Registration |
 
   # # # # # # # @DORE004 @DoctorRegistration @Regression @NotAutomated @Doctor
-  Scenario Outline:User is not able to register with existing mobile number & email
-    Given user navigates to the "<Page Type>" page
-    When user enters value "<Name>" in the fullname input field
-    # And user selects checkbox with value "<GenderType>"
-    And user enters value in the email input field
-    And user enters value in the mobile number input field
-    # And user enters value "<Password>" in the Password input field
-    # And user enters value "<Password>" in the confirm password input field
-    # When user clicks on the register button
-    # Then user can view message Signed up successfully!
-    # And user enter users data in the mobile number input field
-    # And user enter users data in the "Email" input field
-    # And user enters value "<Password>" in the Password input field
-    # Then user can view message <Error Message>
+  # Scenario Outline:User is not able to register with existing mobile number & email
+  #   Given user navigates to the "<Page Type>" page
+  #   When user enters value "<Name>" in the fullname input field
+  #   # And user selects checkbox with value "<GenderType>"
+  #   And user enters value in the email input field
+  #   And user enters value in the mobile number input field
+  #   # And user enters value "<Password>" in the Password input field
+  #   # And user enters value "<Password>" in the confirm password input field
+  #   # When user clicks on the register button
+  #   # Then user can view message Signed up successfully!
+  #   # And user enter users data in the mobile number input field
+  #   # And user enter users data in the "Email" input field
+  #   # And user enters value "<Password>" in the Password input field
+  #   # Then user can view message <Error Message>
 
-    Examples:
-      | Name         | Password    | GenderType | Page Type           | Error Message                 |
-      | Hunter Brown | 9797@Qwerty | Male       | Doctor Registration | Mobile number already exists! |
+  #   Examples:
+  #     | Name         | Password    | GenderType | Page Type           | Error Message                 |
+  #     | Hunter Brown | 9797@Qwerty | Male       | Doctor Registration | Mobile number already exists! |
       # | Hunter Brown | 9797@Qwerty | Male       | Doctor Registration | Email address already exists! |
