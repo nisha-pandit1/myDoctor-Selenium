@@ -1,24 +1,25 @@
-var webdriver = require('selenium-webdriver');
-const {By} = require('selenium-webdriver');
-var driver = new webdriver.Builder().forBrowser('chrome').build();
-driver.manage().setTimeouts({implicit: (100)});
 
 class GenericHelpers{
-    constructor(){
-        global.driver = driver;
+    generateEmailAddresss(){
+        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var string = '';
+                var email = '';
+                var randomnumber = Math.floor(Math.random() * 90000) + 100000;
+                for (var i = 0; i < 15; i++)
+                    string = chars[Math.floor(Math.random() * chars.length)];
+                email = string + +randomnumber + '@gmail.com';
+                return email; 
     }
-    async go_to_url(theURL){
-        await driver.get(theURL);
-    }
-    async enterTextByCss(css, searchText){
-        await driver.findElement(By.css(css)).sendKeys(searchText);
-    }
-    async clickById(id){
-        await driver.findElement(By.id(id)).click();
-    }
-    async closeBrowser(){
-        await driver.quit();
-    }
+   generateMobileNumber(){
+        var num = "0123456789";
+        var mobileNumber = 9;
+        for (var i= 0;i<=9;i++){
+            mobileNumber += num.charAt(Math.floor(Math.random() * num.length));
+            return mobileNumber;
+        }
+       
+    } 
+
 }
 
-module.exports = GenericHelpers;
+module.exports = new GenericHelpers();

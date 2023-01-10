@@ -1,49 +1,49 @@
 Feature: Doctor Registration
 
-  # @DORE001 @Sanity @NotAutomated @Regression @DoctorRegistration @Doctor
-  Scenario Outline:User navigates to the Doctor Registration and signs up
-    Given user navigates to the "<Page Type>" page
-    When user enters value "<Name>" in the "fullname" input field
-    # And user selects checkbox with value "<GenderType>"
-    # And user enters value in the email input field
-    # And user enters value in the mobile number input field
-    And user enters value "<Password>" in the "Password" input field
-    And user enters value "<Password>" in the "confirm password" input field
-    # When user clicks on the "register button"
-    # Then user can view message "Signed up successfully!"
-    Examples:
-      | Name         | Password    | GenderType | Page Type           |
-      | Hunter Brown | 9797@Qwerty | Other       | Doctor Registration |
+  @DORE001 @Sanity @NotAutomated @Regression @DoctorRegistration @Doctor
+  # Scenario Outline:User navigates to the Doctor Registration and signs up
+  #   Given user navigates to the "<Page Type>" page
+  #   When user enters value "<Name>" in the "fullname" input field
+  #   # And user selects checkbox with value "<GenderType>"
+  #   And user enters value in the "email" input field
+  #   And user enters value in the "mobile number" input field
+  #   And user enters value "<Password>" in the "Password" input field
+  #   And user enters value "<Password>" in the "confirm password" input field
+  #   When user clicks on the "register button"
+  #   Then user can view message "Signed up successfully!"
+  #   Examples:
+  #     | Name         | Password    | GenderType | Page Type           |
+  #     | Hunter Brown | 9797@Qwerty | Other       | Doctor Registration |
 
 
   # # @DORE002 @DoctorRegistration @Regression @NotAutomated @Doctor
-  # Scenario Outline:User navigates to the Doctor Registration and signs up with invalid data
-  #   Given user navigates to the "<Page Type>" page
-  #   When user enters value "<Name>" in the fullname input field
-  #   And user enters value "<Mobile Number>" in the mobilenumber input field
-  #   And user enters value "<Email>" in the Email input field
-  #   # And user selects checkbox with value "<GenderType>"
-  #   Then user can view message "<ErrorMessage>"
+  Scenario Outline:User navigates to the Doctor Registration and signs up with invalid data
+    Given user navigates to the "<Page Type>" page
+    When user enters value "<Name>" in the "fullname" input field
+    And user enters value "<Mobile Number>" in the "mobilenumber" input field
+    And user enters value "<Email>" in the "Email" input field
+    # And user selects checkbox with value "<GenderType>"
+    Then user can view message "<ErrorMessage>"
 
-  #   Examples:
-  #     | Name  | Email       | Mobile Number | Page Type           | ErrorMessage                                 | GenderType |
-  #     | sam.1 | abc@abc.com | 9541108298    | Doctor Registration | Please enter a valid name!                   | Female       |
+    Examples:
+      | Name  | Email       | Mobile Number | Page Type           | ErrorMessage                                 | GenderType |
+      | sam.1 | abc@abc.com | 9541108298    | Doctor Registration | Please enter a valid name!                   | Female       |
       # | sam+- | abc@abc.com | 9876543211    | Doctor Registration | Please enter a valid name!                   | Male       |
       # | sam   | ab.com      | 9541108297    | Doctor Registration | Please enter a valid e-mail address          | Male       |
       # | sam   | .com        | 9876543211    | Doctor Registration | Please enter a valid e-mail address          | Male       |
       # | sam   | abc@abc.com | 954110829     | Doctor Registration | Please enter a valid 10-digit mobile number! | Male       |
       # | sam   | abc@abc.com | 98765432      | Doctor Registration | Please enter a valid 10-digit mobile number! | Male       |
 
-  # # # # # # # # # # # # # @DORE003 @DoctorRegistration @Regression @NotAutomated @Doctor
+  # # # # # # # # # # # # # # @DORE003 @DoctorRegistration @Regression @NotAutomated @Doctor
   # Scenario Outline:User is not able to register with invalid password
   #   Given user navigates to the "<Page Type>" page
-  #   When user enters value "<Name>" in the fullname input field
+  #  When user enters value "<Name>" in the "fullname" input field
   #   # And user selects checkbox with value "<GenderType>"
-  #   And user enters value in the email input field
-  #   And user enters value in the mobile number input field
-  #   And user enters value "<Password>" in the Password input field
-  #   And user enter value "<RePassword>" in the confirm password input field
-  #   Then user can view message "<Rule>"
+  #  And user enters value in the "email" input field
+  #   And user enters value in the "mobile number" input field
+  #   And user enters value "<Password>" in the "Password" input field
+  #   And user enters value "<RePassword>" in the "confirm password" input field
+  # #    Then user can view message "<Rule>"
 
   #   Examples:
   #     | Name      | GenderType | Password       | RePassword     | Rule                                                                                                                   | Page Type           |

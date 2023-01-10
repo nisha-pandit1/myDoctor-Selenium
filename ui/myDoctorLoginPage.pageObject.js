@@ -1,7 +1,7 @@
-const {Key,By} = require('selenium-webdriver');
+const {By} = require('selenium-webdriver');
 var webdriver = require('selenium-webdriver');
 var driver = new webdriver.Builder().forBrowser('chrome').build();
-driver.manage().setTimeouts({implicit: (10000)});
+
 class loginPageObject {
 
 async enter_url(theURL){
@@ -18,6 +18,12 @@ async closeBrowser(){
 }
 async navigate(theURL){
     await driver.navigate().to(theURL);
+}
+async getCurrentUrl(){
+   await driver.getCurrentUrl();
+}
+async elementIsPresent(element){
+    await driver.findElement(By.css(element)).isDisplayed();
 }
 }
 module.exports = new loginPageObject();
