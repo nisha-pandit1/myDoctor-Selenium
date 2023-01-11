@@ -4,8 +4,6 @@ var driver = new webdriver.Builder().forBrowser('chrome').build();
 
 class WebXpath {
  
-    
-
     clickByXpath(element){
         driver.findElement(By.xpath(`//*[contains(@text(),'${element}')]`)).click();
     }
