@@ -3,6 +3,7 @@ const env = require("../../envUrls/urls");
 const loginPageObject=require("../../ui/myDoctorLoginPage.pageObject.js")
 const GenericHelpers =require("../../genericHelpers/genericHelpers");
 const WebXpath =require("../../ui/webXpath");
+const WebText =require("../../ui/webText");
 
 Then("user navigates to the {string} page",{timeout:60*1000},async function(string){
     await loginPageObject.navigate(env.doctorRegistrationUrl);
@@ -35,7 +36,14 @@ When("user enters value {string} in the {string} input field",async function(use
     }
 });
 Then("user can view message {string}",async function(message){
-     WebXpath.shouldContainTextByXpath(message);
+    if (message=="No options"){
+        var noOptions="div.MuiAutocomplete-popper";
+         WebText.containsElement(noOptions,message); 
+    }
+    else{
+        WebXpath.shouldContainTextByXpath(message);
+    }
+    
 });
 
 Then("user enters value in the {string} input field",async function(webelem){ 
@@ -54,48 +62,15 @@ Then("user selects checkbox with value {string}",async function(gender){
     WebXpath.clickByXpath(gender);
     });
 
+    Then ("user enter users data in the {string} input field",async function(webElement){
+        if(webelem=="mobile number"){
+        await driver.findElement(By.css(dict["email"])).sendKeys(emailId);}
+   
+        else{
+            await driver.findElement(By.css(dict["email"])).sendKeys((string));
+   }
+    });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// -----error----
-// 
-
-// ----------rorre-----
-
-// Then ("user enter users data in the mobile number input field",async function(){
-//     await driver.findElement(By.css(dict["email"])).sendKeys(emailId);
-//     })
-//     ;
-// Then("user enters value {string} in the Password input field",async function(string){ 
-// await driver.findElement(By.css(dict["Password"])).sendKeys(string);
-// });
-// Then("user enters value {string} in the confirm password input field",async function(string){ 
-// await driver.findElement(By.css(dict["confirmpassword"])).sendKeys(string);
-// });
-// 
-// Then("user enters value {string} in the mobilenumber input field",async function(string){
-//     await driver.findElement(By.css(dict["mobilenumber"])).sendKeys((string));
-// });
-
-// Then("user enters value {string} in the Email input field",async function(string){
-//     await driver.findElement(By.css(dict["email"])).sendKeys((string));
-// });
-
-// 
-// Then("user enter value {string} in the confirm password input field",async function(string){
-//     await driver.findElement(By.css(dict["confirmpassword"])).sendKeys(string);
-// });
 
 

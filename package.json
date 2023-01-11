@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "loginPage": "cucumber-js features/myDoctorLoginPage.feature",
-    "registrationPage":"cucumber-js features/myDoctorRegistration.feature"
+    "registrationPage":"cucumber-js features/myDoctorRegistration.feature",
+    "searchbarPage":"cucumber-js features/myDoctorSearchBar.feature"
   },
   "keywords": [],
   "author": "",

@@ -4,7 +4,17 @@ var driver = new webdriver.Builder().forBrowser('chrome').build();
 
 class WebXpath {
  
-    // setXpathValue(type,word){
+    
+
+    clickByXpath(element){
+        driver.findElement(By.xpath(`//*[contains(@text(),'${element}')]`)).click();
+    }
+    
+    shouldContainTextByXpath(element) {
+        driver.findElement(By.xpath(`//*[contains('${element}')]`)).isDisplayed();
+    
+        }
+// setXpathValue(type,word){
         
     //     let xpathString = '';
 
@@ -17,16 +27,6 @@ class WebXpath {
 
     //     return xpathString;
     // }
-
-    clickByXpath(element){
-        driver.findElement(By.xpath(`//*[contains(@text(),'${element}')]`)).click();
-    }
-    
-    shouldContainTextByXpath(element) {
-        driver.findElement(By.xpath(`//*[contains(@text(),'${element}')]`)).isDisplayed();
-    
-        }
-
     // typeTextByXpath(type,word){
     //     let getXpathValue = this.setXpathValue(type,word);
     //     cy.xpath(getXpathValue).clear().type(word).then(function () {
