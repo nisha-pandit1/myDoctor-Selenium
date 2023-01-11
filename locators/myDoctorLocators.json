@@ -1,0 +1,26 @@
+
+    {
+    "login button": ".MuiTypography-root .MuiButtonBase-root .MuiButton-label",
+    "Email": "input[id='emailOrMobile']",
+   "password": "#password",
+   "submit button": "form span.MuiButton-label",
+   "dashboard": "div.MuiTabs-flexContainer",
+   "fullname": "input#full_name",
+   "email": "input#email_address",
+   "mobile number": "input#mobile_number",
+   "Password": "input#password",
+   "confirm password": "input#confirm_password",
+   "register button": "form span[class='MuiButton-label']",
+   "successfulMessage": "div .MuiAlert-message",
+   "search bar": ".MuiInputBase-root  input[placeholder='Search Doctors']",
+   "search icon": "button[aria-label='search']",
+   "gender": "div #gender-group .MuiFormControlLabel-root",
+   "searchicon": "button.MuiButtonBase-root.MuiIconButton-root[type='submit']",
+   "crossButton":"button.MuiButtonBase-root.MuiIconButton-root.last()",
+   "doctorcarts": "div.MuiCardContent-root p",
+   "specialities field": ".MuiPaper-root.MuiPaper-elevation0.MuiPaper-rounded [placeholder='Select a Service']",
+   "noresultsmessage": "div p.MuiTypography-root",
+   "Nooptions": ".MuiAutocomplete-noOptions",
+   "homepage":".MuiGrid-root.MuiGrid-container"
+  }
+  

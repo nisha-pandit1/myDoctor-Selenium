@@ -11,9 +11,9 @@ class WebXpath {
     }
     
     shouldContainTextByXpath(element) {
-        driver.findElement(By.xpath(`//*[contains('${element}')]`)).isDisplayed();
-    
+        driver.findElement(By.xpath(`.//div[contains(text(),'${element}')]`)).isDisplayed();
         }
+        
 // setXpathValue(type,word){
         
     //     let xpathString = '';

@@ -11,55 +11,25 @@ Given("user is on the homepage", async function () {
   });
  
 When("user clicks on the {string}", async function (webelem) {
-  if(webelem=="login button"){
-  var loginButton= ".MuiTypography-root .MuiButtonBase-root .MuiButton-label"; 
-  await loginPageObject.clickByCss(loginButton); 
-  }
-  else if(webelem=="register button")
-  {
-    WebXpath.clickByXpath("REGISTER");
-  }
-  else if(webelem=="search icon")
-  {
-    var searchicon= "button[aria-label='search']";
-    await loginPageObject.clickByCss(searchicon);
-  }
-  else if(webelem=="specialities field"){
-    var specialitiesfield=".MuiPaper-root.MuiPaper-elevation0.MuiPaper-rounded [placeholder='Select a Service']";
-    await loginPageObject.clickByCss(specialitiesfield);
-  }
-  else {
-    var submitButton= "form span.MuiButton-label";
-    await loginPageObject.clickByCss(submitButton);
-  }
+await loginPageObject.clickByCss(webelem);
 });
 
 Then("user enters the {string} in the {string} input field",{timeout:60*1000},async function(usersData,webelem){
-  if(webelem=="email"){
-    var  emailId = "#emailOrMobile";
-    await loginPageObject.enterTextByCss(emailId, decryptedData.decodedData(usersData));
-  }
-  else if(webelem=="search bar"){
-    var searchBar=".MuiInputBase-root  input[placeholder='Search Doctors']";
-    await loginPageObject.clickByCss(searchBar);
-    await loginPageObject.enterTextByCss(searchBar,usersData);
+   if(webelem=="search bar"){
+    await loginPageObject.clickByCss(webelem);
+    await loginPageObject.enterTextByCss(webelem,usersData);
   }
   else if(webelem=="specialities field"){
-    var specialitiesfield=".MuiPaper-root.MuiPaper-elevation0.MuiPaper-rounded [placeholder='Select a Service']";
-    await loginPageObject.enterTextByCss(specialitiesfield,usersData);
-    await loginPageObject.enterTextByCss(specialitiesfield,Key.ARROW_DOWN);
-    await loginPageObject.enterTextByCss(specialitiesfield,Key.ENTER);
-
-  }
+    await loginPageObject.enterTextByCss(webelem,usersData);
+    await loginPageObject.enterTextByCss(webelem,Key.ARROW_DOWN);
+    await loginPageObject.enterTextByCss(webelem,Key.ENTER);
+}
   else{
-    var  password = "#password";
-    await loginPageObject.enterTextByCss(password, decryptedData.decodedData(usersData));
+    await loginPageObject.enterTextByCss(webelem, decryptedData.decodedData(usersData));
   }
- 
 });
 
-Then("user should navigate to homepage",{timeout:60*1000},async function(){
-let webelem=".MuiGrid-root.MuiGrid-container";
+Then("user should navigate to {string}",{timeout:60*1000},async function(webelem){
 await loginPageObject.elementIsPresent(webelem);
 // var URL =await driver.getCurrentUrl(); 
 // console.log(URL);

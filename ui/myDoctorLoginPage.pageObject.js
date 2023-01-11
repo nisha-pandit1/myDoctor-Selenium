@@ -1,17 +1,17 @@
 const {By} = require('selenium-webdriver');
 var webdriver = require('selenium-webdriver');
 var driver = new webdriver.Builder().forBrowser('chrome').build();
-
+const locators =require ("../locators/myDoctorLocators.json")
 class loginPageObject {
 
 async enter_url(theURL){
     await driver.get(theURL);
 }
-async enterTextByCss(css, searchText){
-    await driver.findElement(By.css(css)).sendKeys(searchText);
+async enterTextByCss(Element, searchText){
+    await driver.findElement(By.css(locators[Element])).sendKeys(searchText);
 }
 async clickByCss(Element){
-    await driver.findElement(By.css(Element)).click();
+    await driver.findElement(By.css(locators[Element])).click();
 }
 async closeBrowser(){
     await driver.quit();
@@ -22,8 +22,8 @@ async navigate(theURL){
 async getCurrentUrl(){
    await driver.getCurrentUrl();
 }
-async elementIsPresent(element){
-    await driver.findElement(By.css(element)).isDisplayed();
+async elementIsPresent(Element){
+    await driver.findElement(By.css(locators[Element])).isDisplayed();
 }
 }
 module.exports = new loginPageObject();

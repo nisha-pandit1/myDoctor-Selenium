@@ -4,63 +4,33 @@ const loginPageObject=require("../../ui/myDoctorLoginPage.pageObject.js")
 const GenericHelpers =require("../../genericHelpers/genericHelpers");
 const WebXpath =require("../../ui/webXpath");
 const WebText =require("../../ui/webText");
-
+const locators =require ("../../locators/myDoctorLocators.json");
 Then("user navigates to the {string} page",{timeout:60*1000},async function(string){
-    await loginPageObject.navigate(env.doctorRegistrationUrl);
-   
+    await loginPageObject.navigate(env.doctorRegistrationUrl);  
 });
+
 When("user enters value {string} in the {string} input field",async function(usersData,webidentifiers){
-    if (webidentifiers=="fullname"){
-        var fullname="input#full_name";
-        await loginPageObject.enterTextByCss(fullname, usersData);
-    }
-    else if(webidentifiers=="Password"){
-        var  password = "#password";
-        await loginPageObject.enterTextByCss(password, usersData);
-      
-    }
-    else if(webidentifiers=="confirm password"){
-        var   confirmpassword= "input#confirm_password";
-        await loginPageObject.enterTextByCss(confirmpassword, usersData);
-      
-    }
-    else if(webidentifiers=="mobilenumber"){
-        var   mobilenumber= "input#mobile_number";
-        await loginPageObject.enterTextByCss(mobilenumber, usersData);
-      
-    }
-    else if(webidentifiers=="Email"){
-        email= "input#email_address";
-        await loginPageObject.enterTextByCss(email, usersData);
-      
-    }
+    await loginPageObject.enterTextByCss(webidentifiers, usersData);
+
 });
 Then("user can view message {string}",async function(message){
-    if (message=="No options"){
-        var noOptions="div.MuiAutocomplete-popper";
-         WebText.containsElement(noOptions,message); 
-    }
-    else{
-        WebXpath.shouldContainTextByXpath(message);
-    }
-    
+     WebXpath.shouldContainTextByXpath(message);
 });
 
 Then("user enters value in the {string} input field",async function(webelem){ 
     if(webelem=="email"){
-        var  emailId = "input#email_address";
         var email=GenericHelpers.generateEmailAddresss();
-        await loginPageObject.enterTextByCss(emailId,email);
+        await loginPageObject.enterTextByCss(webelem,email);
       }
 else{
-    var   mobilenumber= "input#mobile_number";
-    var mobileno =GenericHelpers.generateMobileNumber();
-    await loginPageObject.enterTextByCss(mobilenumber,"9984437331");
-}
+    var mobileno=GenericHelpers.generateMobileNumber();
+    await loginPageObject.enterTextByCss(webelem,"9824249442");}
 });
-Then("user selects checkbox with value {string}",async function(gender){
-    WebXpath.clickByXpath(gender);
-    });
+
+// Then("user selects checkbox with value {string}",async function(gender){
+//     let genderType="`${locators[gender]}:contains('${gender}') [type='radio']`";
+//     await loginPageObject.clickByCss(genderType);
+//     });
 
     Then ("user enter users data in the {string} input field",async function(webElement){
         if(webelem=="mobile number"){
