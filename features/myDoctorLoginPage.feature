@@ -2,7 +2,7 @@ Feature: Login Section
 
     # @Regression @Complete
     Scenario Outline: Sucessfully Login with valid credential
-        Given user is on the homepage
+        Given user is on the "home" page
         When user clicks on the "login button"
         And user enters the "<email>" in the "Email" input field
         And user enters the "<password>" in the "password" input field

@@ -8,13 +8,14 @@ const locators =require ("../../locators/myDoctorLocators.json");
 const { By, Key } = require('selenium-webdriver')
 const decryptedData = require("../../Credentials/decrypt");
 
-Given("user is on the homepage", {timeout:60*1000},async function () {
-    await loginPageObject.enter_url(env.baseUrl);
+
+Given("user is on the {string} page", {timeout:60*1000},async function (string) {
+    await loginPageObject.enter_url(string);
     });
     
 When("user clicks on the {string}", async function (webelem) {
     await loginPageObject.clickByCss(webelem);
-    });
+});
     
     Then("user enters the {string} in the {string} input field",{timeout:60*1000},async function(usersData,webelem){
        if(webelem=="search bar"){

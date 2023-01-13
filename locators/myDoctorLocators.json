@@ -1,6 +1,6 @@
 
     {
-    "login button": ".MuiTypography-root .MuiButtonBase-root .MuiButton-label",
+    "login button": ".MuiTypography-root .MuiButtonBase-root",
     "Email": "input[id='emailOrMobile']",
    "password": "#password",
    "submit button": "form span.MuiButton-label",
