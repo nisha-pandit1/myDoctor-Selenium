@@ -2,7 +2,6 @@ const { When, Then ,Given, Before, After } = require("@cucumber/cucumber");
 const env = require("../../envUrls/urls");
 const assert = require('assert');
 const { By, Key } = require('selenium-webdriver')
-const decryptedData = require("../../Credentials/decrypt");
 const loginPageObject=require("../../ui/myDoctorLoginPage.pageObject.js")
 const WebXpath =require("../../ui/webXpath");
 

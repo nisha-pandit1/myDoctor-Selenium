@@ -1,36 +1,38 @@
 const {By} = require('selenium-webdriver');
-var webdriver = require('selenium-webdriver');
-const locators =require ("../locators/myDoctorLocators.json")
 const LoginPageObject = require('../pageObjects/loginPage');
-
+const webButton = require('./webButton');
+const webTextBox = require('./webTextBox');
+const webXpath = require('./webXpath');
 const obj = new LoginPageObject();
-
-
 class loginPageObject   {
 
-async enter_url(url){
-    obj.getDriver(url)
+async visit(url){
+    obj.getDriver(url);
 }
-async enterTextByCss(locator, searchText){
+async typeText(locator, searchText){
     const element = await obj.getElement(locator);
-    await element.sendKeys(searchText);
+    webTextBox.typeText(element,searchText);
 }
-async clickByCss(locator){
+async click(locator){
     const element = await obj.getElement(locator);
-    await element.click();
+    webButton.click(element);
 }
-// async closeBrowser(){
-//     await driver.quit();
+async wait(){
+    await obj.wait();
+}
+async clickByXpath(type,elemnt){
+    // const element = await obj.getElement(elemnt);
+    await webXpath.clickByXpath(type,elemnt);
+}
+
+// async elementIsPresent(locator){
+//     const element = await obj.getElement(locator);
+//     await element.isDisplayed();
 // }
-// async navigate(theURL){
-//     await driver.navigate().to(theURL);
-// }
-// async getCurrentUrl(){
-//    await driver.getCurrentUrl();
-// }
-async elementIsPresent(locator){
+async containsElement(locator,elementtext){
     const element = await obj.getElement(locator);
-    await element.isDisplayed();
+ await WebText. containsElement(element,elementtext)
 }
+
 }
 module.exports = new loginPageObject();

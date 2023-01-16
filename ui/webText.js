@@ -3,8 +3,8 @@ const {By} = require('selenium-webdriver');
 
 class WebText {
 
-   containsElement(css,elementtext) {
-   driver.findElement(By.css(css)).contains(elementtext);
+   containsElement(element,elementtext) {
+    element.contains(elementtext);
   }
 }
 

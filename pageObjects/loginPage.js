@@ -16,6 +16,9 @@ class LoginPageObject {
         baseClass.driver.manage().window().maximize();
         baseClass.driver.get(env.baseUrl + env[url]);
     }
+    // async wait(){
+    //     baseClass.driver.wait(1000);  
+    // }
 }
 
 module.exports = LoginPageObject;

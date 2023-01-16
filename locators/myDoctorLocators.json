@@ -17,8 +17,8 @@
    "gender": "div #gender-group .MuiFormControlLabel-root",
    "searchicon": "button.MuiButtonBase-root.MuiIconButton-root[type='submit']",
    "crossButton":"button.MuiButtonBase-root.MuiIconButton-root.last()",
-   "doctorcarts": "div.MuiCardContent-root p",
-   "specialities field": ".MuiPaper-root.MuiPaper-elevation0.MuiPaper-rounded [placeholder='Select a Service']",
+   "doctor cart": "div.MuiCardContent-root p",
+   "specialities field": "[placeholder='Select a Service']",
    "noresultsmessage": "div p.MuiTypography-root",
    "Nooptions": ".MuiAutocomplete-noOptions",
    "homepage":".MuiGrid-root.MuiGrid-container"
