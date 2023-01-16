@@ -1,5 +1,5 @@
 var base64 = require("base-64");
-const cred = require("./userCredential");
+const cred = require("../Credentials/userCredential");
 
 class decryptedData {
   static decodedData(string) {

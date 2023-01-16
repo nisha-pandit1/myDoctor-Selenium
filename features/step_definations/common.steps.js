@@ -6,7 +6,7 @@ const WebXpath =require("../../ui/webXpath");
 const WebText =require("../../ui/webText");
 const locators =require ("../../locators/myDoctorLocators.json");
 const { By, Key } = require('selenium-webdriver')
-const decryptedData = require("../../Credentials/decrypt");
+const decryptedData = require("../../Decryption/decrypt");
 
 
 Given("user is on the {string} page", {timeout:60*1000},async function (string) {

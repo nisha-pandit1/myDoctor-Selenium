@@ -10,15 +10,6 @@ class BasePage {
     constructor() {
         this.driver = new webdriver.Builder().forBrowser('chrome').build();
     }
-
-    getDriver(url) {
-        this.driver.manage().window().maximize();
-        this.driver.get(env.baseUrl + env[url]);
-    }
-
-
-
-
 }
 
 module.exports = BasePage;
