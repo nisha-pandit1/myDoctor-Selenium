@@ -1,4 +1,6 @@
 const {By} = require('selenium-webdriver');
+const LoginPageObject = require('../pageObjects/loginPage');
+const obj = new LoginPageObject();
 
 
 class WebXpath {
@@ -7,19 +9,17 @@ class WebXpath {
         
         let xpathString = '';
         if(type === 'visibleText'){
-            this.xpathString = `.//*[contains(text(),'${word}')]`}
+            xpathString = `.//*[contains(text(),'${word}')]`}
 
             else{
-                this.xpathString = `.//*[contains(@${type},'${word}')]`
+                xpathString = `.//*[contains(@${type},'${word}')]`
         }
-
         return xpathString;
     }
 
     async clickByXpath(type,element){
-
-        let getXpathValue = this.setXpathValue(type,element);
-        await getXpathValue.click().then(function () {
+        const ele = await obj.getElementByXpath(this.setXpathValue(type,element));
+        await ele.click().then(function () {
             cy.log("The element got clicked.");
         }, function (err) {
             cy.log("--->Error: The element couldn't get clicked due to: " + err);

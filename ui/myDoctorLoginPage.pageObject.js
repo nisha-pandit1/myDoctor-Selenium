@@ -21,7 +21,7 @@ async wait(){
     await obj.wait();
 }
 async clickByXpath(type,elemnt){
-    // const element = await obj.getElement(elemnt);
+    
     await webXpath.clickByXpath(type,elemnt);
 }
 
