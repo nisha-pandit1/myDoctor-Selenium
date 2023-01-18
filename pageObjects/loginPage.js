@@ -25,15 +25,17 @@ class LoginPageObject {
     async getCurrentUrl(){
         return await baseClass.driver.getCurrentUrl(); 
     }
-    async getAction(){
+    async getAction(element){
+        baseClass.driver.manage().setTimeouts( { implicit: 10000000 } );
         await baseClass.driver.actions()
-        .keyDown(Key.SHIFT,{force:true})
+        .keyDown(Key.ARROW_DOWN)
         .perform()
+        
 
     }
     async getActionEnter(){
         await baseClass.driver.actions()
-        .keyDown(Key.SHIFT)
+        .keyDown(Key.ARROW_DOWN)
         .perform()
     }
 }

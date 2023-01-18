@@ -22,12 +22,11 @@ Then("user enters the {string} in the {string} input field", async function (use
 
   else if (webelem == "specialities field") {
     await loginPageObject.typeText(webelem, usersData);
+    await obj.getAction(webelem)
+    // await obj.getActionEnter()
+    await loginPageObject.typeText(webelem,Key.ARROW_DOWN);
   }
-  //   await obj.getAction(webelem)
-  //   await obj.getActionEnter()
-  //   await loginPageObject.typeText(webelem,Key.ARROW_DOWN);
-  //   // await loginPageObject.typeText(webelem, Key.ENTER);
-  // }
+
   else{
     await loginPageObject.typeText(webelem, usersData);  
   }
