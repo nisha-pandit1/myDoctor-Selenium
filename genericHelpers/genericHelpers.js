@@ -15,8 +15,8 @@ class GenericHelpers{
         var mobileNumber = 9;
         for (var i= 0;i<=8;i++){
             mobileNumber += num.charAt(Math.floor(Math.random() * num.length));
-            return mobileNumber;
         }
+        return mobileNumber;
        
     } 
 

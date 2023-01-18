@@ -20,27 +20,19 @@ class WebXpath {
     async clickByXpath(type,element){
         const ele = await obj.getElementByXpath(this.setXpathValue(type,element));
         await ele.click().then(function () {
-            cy.log("The element got clicked.");
+            console.log("The element got clicked.");
         }, function (err) {
-            cy.log("--->Error: The element couldn't get clicked due to: " + err);
+            console.log("--->Error: The element couldn't get clicked due to: " + err);
         });
     }
-    shouldContainTextByXpath(element) {
-        driver.findElement(By.xpath(`.//div[contains(text(),'${element}')]`)).isDisplayed();
+    async shouldContainTextByXpath(type,element) {
+        const ele = await obj.getElementByXpath(this.setXpathValue(type,element));
+        await ele.isDisplayed().then(function () {
+            console.log("The element is displayed");
+        }, function (err) {
+            console.log("--->Error: The element couldn't be displayed due to: " + err);}
+
+            )};
         }
-        
-// 
-    // typeTextByXpath(type,word){
-    //     let getXpathValue = this.setXpathValue(type,word);
-    //     cy.xpath(getXpathValue).clear().type(word).then(function () {
-    //         cy.log('Typing of the field with value: ' + data);
-    //     }, function (err) {
-    //         cy.log('--->Error: Typing of the field with value:' + data + ' was not done due to: ' + err);
-    //     });
-    // }
-
-   
-
-}
 
 module.exports = new WebXpath();

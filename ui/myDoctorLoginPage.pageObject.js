@@ -1,6 +1,7 @@
 const {By} = require('selenium-webdriver');
 const LoginPageObject = require('../pageObjects/loginPage');
 const webButton = require('./webButton');
+const webText = require('./webText');
 const webTextBox = require('./webTextBox');
 const webXpath = require('./webXpath');
 const obj = new LoginPageObject();
@@ -21,18 +22,17 @@ async wait(){
     await obj.wait();
 }
 async clickByXpath(type,elemnt){
-    
     await webXpath.clickByXpath(type,elemnt);
 }
-
-// async elementIsPresent(locator){
-//     const element = await obj.getElement(locator);
-//     await element.isDisplayed();
-// }
-async containsElement(locator,elementtext){
-    const element = await obj.getElement(locator);
- await WebText. containsElement(element,elementtext)
+async shouldContainTextByXpath(type,elemnt){
+    await webXpath.shouldContainTextByXpath(type,elemnt);
 }
-
+async containsElement(locator,elementtext){
+ const element = await obj.getElement(locator);
+ await webText.containsElement(element,elementtext)
+}
+async currentUrl(){
+    return await obj.getCurrentUrl();
+}
 }
 module.exports = new loginPageObject();

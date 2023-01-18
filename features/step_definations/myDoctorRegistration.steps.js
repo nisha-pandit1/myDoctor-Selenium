@@ -1,42 +1,42 @@
-const { When, Then ,Given, Before, After } = require("@cucumber/cucumber");
-const loginPageObject=require("../../ui/myDoctorLoginPage.pageObject.js")
-const GenericHelpers =require("../../genericHelpers/genericHelpers");
-const WebXpath =require("../../ui/webXpath");
-const WebText =require("../../ui/webText");
-const locators =require ("../../locators/myDoctorLocators.json");
+const { When, Then, Given, Before, After } = require("@cucumber/cucumber");
+const loginPageObject = require("../../ui/myDoctorLoginPage.pageObject.js")
+const GenericHelpers = require("../../genericHelpers/genericHelpers");
 
-When("user enters value {string} in the {string} input field",async function(usersData,webidentifiers){
-    await loginPageObject.typeText(webidentifiers, usersData);
-
-});
-Then("user can view message {string}",async function(message){
-     WebXpath.shouldContainTextByXpath(message);
+Then("user can view message {string}", async function (message) {
+    let messageText = [];
+    messageText = message.split('.');
+    for (let count = 0; count < messageText.length; count++) {
+        await loginPageObject.wait();
+        await loginPageObject.shouldContainTextByXpath("visibleText", messageText[count]);
+    }
 });
 
-Then("user enters value in the {string} input field",async function(webelem){ 
-    if(webelem=="email"){
-        var email=GenericHelpers.generateEmailAddresss();
-        await loginPageObject.typeText(webelem,email);
-      }
-else{
-    var mobileNum=GenericHelpers.generateMobileNumber();
-    await loginPageObject.typeText(webelem,mobileNum);}
+Then("user enters value in the {string} input field", async function (webelem) {
+    if (webelem == "email") {
+        var emailId = GenericHelpers.generateEmailAddresss();
+        await loginPageObject.typeText(webelem, emailId);
+    }
+    else {
+        var mobileNumber = GenericHelpers.generateMobileNumber();
+        await loginPageObject.typeText(webelem, mobileNumber);
+    }
 });
 
-Then("user selects checkbox with value {string}",async function(usersGeneder){
+Then("user selects checkbox with value {string}", async function (usersGeneder) {
+    await loginPageObject.clickByXpath("visibleText", usersGeneder);
+});
 
-     await loginPageObject.clickByXpath("visibleText",usersGeneder);
-    
-    });
+Then("user enter users data in the {string} input field", async function (webElement) {
+    console.log("statement executed")
+    if (webElement == "mobile number") {
+        await loginPageObject.typeText(webElement, mobileNumber);
+    }
 
-    Then ("user enter users data in the {string} input field",async function(webElement){
-        if(webelem=="mobile number"){
-        await driver.findElement(By.css(dict["email"])).sendKeys(emailId);}
-   
-        else{
-            await driver.findElement(By.css(dict["email"])).sendKeys((string));
-   }
-    });
+    else {
+        console.log("danish",emailId);
+        await loginPageObject.typeText(webElement, emailId);
+    }
+});
 
 
 
