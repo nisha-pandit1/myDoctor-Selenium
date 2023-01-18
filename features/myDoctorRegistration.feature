@@ -71,8 +71,8 @@ Feature: Doctor Registration
     Then user can view message "Signed up successfully!"
     And user enter users data in the "mobile number" input field
     And user enter users data in the "email" input field
-    # And user enters value "<Password>" in the "Password" input field
-    # Then user can view message "<Error Message>"
+    And user enters the "<Password>" in the "Password" input field
+    Then user can view message "<Error Message>"
 
     Examples:
       | Name         | Password    | gender | Page Type          | Error Message                 |

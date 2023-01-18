@@ -1,7 +1,8 @@
 const { When, Then, Given, Before, After } = require("@cucumber/cucumber");
 const loginPageObject = require("../../ui/myDoctorLoginPage.pageObject.js")
 const GenericHelpers = require("../../genericHelpers/genericHelpers");
-
+var mobileNumber = GenericHelpers.generateMobileNumber();
+var emailId = GenericHelpers.generateEmailAddresss();
 Then("user can view message {string}", async function (message) {
     let messageText = [];
     messageText = message.split('.');
@@ -13,11 +14,9 @@ Then("user can view message {string}", async function (message) {
 
 Then("user enters value in the {string} input field", async function (webelem) {
     if (webelem == "email") {
-        var emailId = GenericHelpers.generateEmailAddresss();
         await loginPageObject.typeText(webelem, emailId);
     }
     else {
-        var mobileNumber = GenericHelpers.generateMobileNumber();
         await loginPageObject.typeText(webelem, mobileNumber);
     }
 });
@@ -27,13 +26,11 @@ Then("user selects checkbox with value {string}", async function (usersGeneder) 
 });
 
 Then("user enter users data in the {string} input field", async function (webElement) {
-    console.log("statement executed")
     if (webElement == "mobile number") {
         await loginPageObject.typeText(webElement, mobileNumber);
     }
 
     else {
-        console.log("danish",emailId);
         await loginPageObject.typeText(webElement, emailId);
     }
 });
