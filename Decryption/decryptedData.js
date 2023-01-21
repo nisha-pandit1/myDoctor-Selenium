@@ -6,6 +6,5 @@ class decryptedData {
     return base64.decode(cred[string]);
     
   }
-
 }
 module.exports = decryptedData;

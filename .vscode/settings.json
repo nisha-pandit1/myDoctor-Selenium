@@ -12,5 +12,6 @@
         "comments": false,
         "strings": true,
         "other": true
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

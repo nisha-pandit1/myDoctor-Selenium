@@ -17,7 +17,7 @@ class GenericHelpers{
             mobileNumber += num.charAt(Math.floor(Math.random() * num.length));
         }
         return mobileNumber;
-       
+      
     } 
 
 }

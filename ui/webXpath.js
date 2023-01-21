@@ -1,5 +1,5 @@
 const {By} = require('selenium-webdriver');
-const LoginPageObject = require('../pageObjects/loginPage');
+const LoginPageObject = require('../pageObjects/baseClass');
 const obj = new LoginPageObject();
 
 

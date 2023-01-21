@@ -1,5 +1,3 @@
-const {By} = require('selenium-webdriver');
-
 
 class WebText {
 async containsElement(element,elementtext) {

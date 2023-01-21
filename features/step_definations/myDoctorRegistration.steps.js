@@ -1,37 +1,46 @@
 const { When, Then, Given, Before, After } = require("@cucumber/cucumber");
-const loginPageObject = require("../../ui/myDoctorLoginPage.pageObject.js")
+const PageObject = require("../../pageObjects/pageObject")
 const GenericHelpers = require("../../genericHelpers/genericHelpers");
-var mobileNumber = GenericHelpers.generateMobileNumber();
-var emailId = GenericHelpers.generateEmailAddresss();
+
+var phoneNumber;
+var emailId;
+
 Then("user can view message {string}", async function (message) {
+    await PageObject.wait();
     let messageText = [];
     messageText = message.split('.');
     for (let count = 0; count < messageText.length; count++) {
-        await loginPageObject.wait();
-        await loginPageObject.shouldContainTextByXpath("visibleText", messageText[count]);
+        await PageObject.wait();
+        await PageObject.shouldContainTextByXpath("visibleText", messageText[count]);
     }
 });
 
 Then("user enters value in the {string} input field", async function (webelem) {
     if (webelem == "email") {
-        await loginPageObject.typeText(webelem, emailId);
+        var email = GenericHelpers.generateEmailAddresss();
+        await PageObject.typeText(webelem, email);
+   emailId= email;
     }
+    
     else {
-        await loginPageObject.typeText(webelem, mobileNumber);
+        var mobileNumber = GenericHelpers.generateMobileNumber();
+        await PageObject.typeText(webelem, mobileNumber);
+        phoneNumber=mobileNumber;
     }
 });
 
 Then("user selects checkbox with value {string}", async function (usersGeneder) {
-    await loginPageObject.clickByXpath("visibleText", usersGeneder);
+    await PageObject.clickByXpath("visibleText", usersGeneder);
 });
 
 Then("user enter users data in the {string} input field", async function (webElement) {
+    await PageObject.wait();
     if (webElement == "mobile number") {
-        await loginPageObject.typeText(webElement, mobileNumber);
+        await PageObject.typeText(webElement, phoneNumber);
     }
 
     else {
-        await loginPageObject.typeText(webElement, emailId);
+        await PageObject.typeText(webElement, emailId);
     }
 });
 

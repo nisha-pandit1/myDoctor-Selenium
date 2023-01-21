@@ -7,7 +7,7 @@ Feature: Login Section
         And user enters users "<Email>" in the "Email" input field
         And user enters users "<Password>" in the "Password" input field
         And user clicks on the "submit button"
-        Then user should navigate to "homepage"
+        Then user should navigate to homepage
 
         Examples:
             | Email        | Password        |
