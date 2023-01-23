@@ -16,7 +16,7 @@ Then("user can view message {string}", async function (message) {
 });
 
 Then("user enters value in the {string} input field", async function (webelem) {
-    if (webelem == "email") {
+    if (webelem == "Email") {
         var email = GenericHelpers.generateEmailAddresss();
         await PageObject.typeText(webelem, email);
    emailId= email;

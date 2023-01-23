@@ -1,0 +1,7 @@
+{
+    "search bar": ".MuiInputBase-root  input[placeholder='Search Doctors']",
+    "search icon": "button[aria-label='search']",
+    "doctor cart": "div.MuiCardContent-root p",
+    "specialities field": "[placeholder='Select a Service']"
+    
+}

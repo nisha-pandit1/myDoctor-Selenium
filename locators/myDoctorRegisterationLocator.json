@@ -1,0 +1,7 @@
+{
+    "fullname": "input#full_name",
+    "Email": "input#email_address",
+    "mobile number": "input#mobile_number",
+   "confirm password": "input#confirm_password",
+   "register button": "form span[class='MuiButton-label']"
+}

@@ -6,33 +6,24 @@ Given("user is on the {string} page", async function (string) {
   await PageObject.visit(string);
 });
 
-When("user clicks on the {string}", async function (webelem) {
-  await PageObject.click(webelem);
+When("user clicks on the {string}", async function (elementIdentifier) {
+  await PageObject.click(elementIdentifier);
 });
 
-Then("user enters the {string} in the {string} input field", async function (usersData, webelem) {
+Then("user enters the {string} in the {string} input field", async function (usersData, elementIdentifier) {
   
-  if (webelem == "search bar") {
-    await PageObject.click(webelem);
-    await PageObject.typeText(webelem, usersData);
+  if (elementIdentifier == "search bar") {
+    await PageObject.click(elementIdentifier);
+    await PageObject.typeText(elementIdentifier, usersData);
   }
 
-  else if (webelem == "specialities field") {
-    await PageObject.typeText(webelem, usersData);
+  else if (elementIdentifier == "specialities field") {
+    await PageObject.typeText(elementIdentifier, usersData);
     await PageObject.wait();
     await PageObject.clickByXpath("visibleText", usersData);
-    // await obj.getAction(dropdown);
-    // await PageObject.typeText(webelem,Key.ARROW_LEFT);
-    // Actions a = new Actions(driver);
-    // await PageObject.wait();
-    // await PageObject.click(dropdown);
-//     cy.get(".MuiInputBase-input:first").click();
-// cy.get(".MuiInputBase-input:first").type("Dental");
-// cy.wait(1000);
-// cy.get("[role='listbox']").click();
   }
 
   else{
-    await PageObject.typeText(webelem, usersData);  
+    await PageObject.typeText(elementIdentifier, usersData);  
   }
 });
